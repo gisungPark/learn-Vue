@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <!-- <app-header v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"></app-header> -->
+  <app-header v-bind:propsdata="str" v-on:renew="renewStr"></app-header>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// 파일의 내용이 AppHeader라는 변수에 담겼다.
+import AppHeader from "./components/AppHeader.vue";
 
 export default {
-  // 인스턴스 옵션 속성 or 컴포넌트 옵션 속성
-  name: "App",
+  data: function () {
+    return {
+      str: "propsdata",
+    };
+  },
   components: {
-    HelloWorld,
+    // import된 변수를 컴포넌트로 등록
+    "app-header": AppHeader,
+  },
+  methods: {
+    renewStr: function () {
+      this.str = "hi";
+    },
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
