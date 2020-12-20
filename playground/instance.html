@@ -8,6 +8,8 @@
 <body>
     <div id="app">
         <!-- .... -->
+        <input type="text" v-model="message">
+        {{ message }}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -15,7 +17,7 @@
         var vm = new Vue({
             el: '#app',
             data: {
-                messagae: 'hi',
+                message: 'hi',
             },
             methods: {
                 
